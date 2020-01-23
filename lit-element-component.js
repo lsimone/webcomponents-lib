@@ -1,3 +1,5 @@
+// import 'babel-polyfill'
+import '@webcomponents/webcomponentsjs/webcomponents-bundle.js'
 import { LitElement, html } from 'lit-element'
 
 console.log('hello mr lit-element')

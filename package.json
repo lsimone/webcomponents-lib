@@ -16,8 +16,11 @@
   "license": "ISC",
   "dependencies": {
     "@babel/runtime": "^7.8.3",
-    "haunted": "^4.7.0",
-    "lit-element": "^2.2.1"
+    "@webcomponents/webcomponentsjs": "^2.4.1",
+    "babel-polyfill": "^6.26.0",
+    "haunted": "^4.5.2",
+    "lit-element": "^2.2.1",
+    "proxy-polyfill": "^0.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",
