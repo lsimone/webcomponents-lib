@@ -1,13 +1,21 @@
 import '@webcomponents/webcomponentsjs/webcomponents-bundle.js'
-import { LitElement, html } from 'lit-element'
+import { LitElement, html, customElement, property } from 'lit-element'
+import './lit-element.global.scss'
+import style from './lit-element.scss'
 
 console.log('hello mr lit-element')
 
-class Component extends LitElement {
+@customElement('lit-element-component')
+export class Component extends LitElement {
+  end: number
+  __count: number
+  __changes: number
+  start: any
+
   static get properties() {
     return {
-      start: { type: Number },
       end: { type: Number },
+      start: { type: Number },
       __count: { type: Number }
     }
   }
@@ -19,7 +27,6 @@ class Component extends LitElement {
   constructor() {
     super()
     this.end = 5
-    console.warn(this, this.attributes.start, +this.getAttribute('start') || 0)
     this.__count = 0
     this.__changes = 0
   }
@@ -57,7 +64,7 @@ class Component extends LitElement {
         }
       </style>
       <div style="border:1px solid #ccc;width:100px;padding:20px;font-size:20px;">
-        <div id="count" style="text-align:center">${this.__count}</div>
+        <div class="${style.count}" style="text-align:center">${this.__count}</div>
         <button type="button"  @click=${this.subtract}>&minus;</button>
         <button type="button"  @click=${this.add}>&plus;</button>
       </div>
@@ -65,4 +72,4 @@ class Component extends LitElement {
   }
 }
 
-customElements.define('lit-element-component', Component)
+// customElements.define('lit-element-component', Component)
