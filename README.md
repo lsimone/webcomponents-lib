@@ -13,6 +13,20 @@ $ npm run build
 $ npm run serve
 ```
 
+## Lit element
+
+Current build configuration features:
+- webcomponents library
+- typescript
+- sass modules
+- Lit element
+- input props
+- output custom events
+- bootstrap as utility library
+- annotations
+- IE11 compatible
+- functional components
+
 ## disable transpilation
 
 In order to disable babel transpilation, just set `DISABLE_TRANSPILE = true` in `./webpack.config.js`.

@@ -1,8 +1,9 @@
 import '@webcomponents/webcomponentsjs/webcomponents-bundle.js'
 import { LitElement, html, customElement, property } from 'lit-element'
 import './lit-element.global.scss'
-import style from './lit-element.scss'
 import bootstrap from 'bootstrap/scss/bootstrap.scss'
+import './lit-element-sub'
+import { banner } from './lit-element.view'
 
 console.log('hello mr lit-element!')
 
@@ -12,6 +13,7 @@ export class Component extends LitElement {
     @property({ type: Number }) __count = 0
     @property({ type: Number }) __changes = 0
     @property({ type: Number }) start = 0
+    @property({ type: String }) heading = 'Inside the component'
 
     createRenderRoot() {
         return this
@@ -42,6 +44,7 @@ export class Component extends LitElement {
 
         return html`
             <style>
+                /* avoid to use this. Better use sass modules */
                 button {
                     line-height: 20px;
                     border: 1px solid #ddd;
@@ -51,12 +54,18 @@ export class Component extends LitElement {
                     font-size: 20px;
                 }
             </style>
+            <div @click=${() => (this.heading += '!')}>
+                ${banner(
+                    this.heading,
+                    this.heading.length % 2 ? 'dark' : 'light'
+                )}
+            </div>
             <div
                 style="border:1px solid #ccc;width:100px;padding:20px;font-size:20px;"
             >
-                <div class="${style.count}" style="text-align:center">
-                    ${this.__count}
-                </div>
+                <lit-element-counter
+                    count=${this.__count}
+                ></lit-element-counter>
                 <button
                     type="button"
                     class="${bootstrap.btn}"

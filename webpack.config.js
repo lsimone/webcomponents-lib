@@ -16,31 +16,16 @@ const CFG = {
         libraryTarget: 'umd',
         library: 'userhub'
     },
+    resolve: {
+        // Add `.ts` and `.tsx` as a resolvable extension.
+        extensions: ['.ts', '.tsx', '.js', '.css', '.scss']
+    },
     module: {
         rules: [
             {
                 test: /\.ts?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
-            },
-            /* GLOBAL (s)Css */
-            {
-                test: /global\.(sa|sc|c)ss$/,
-                use: [
-                    DEV_MODE ? 'style-loader' : 'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: DEV_MODE
-                        }
-                    },
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: DEV_MODE
-                        }
-                    }
-                ]
             },
             /* (s)Css */
             {
