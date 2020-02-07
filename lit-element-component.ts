@@ -13,7 +13,7 @@ export class Component extends LitElement {
     @property({ type: Number }) __count = 0
     @property({ type: Number }) __changes = 0
     @property({ type: Number }) start = 0
-    @property({ type: String }) heading = 'Inside the component'
+    @property({ type: String }) heading = 'Lit element works'
 
     createRenderRoot() {
         return this

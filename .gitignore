@@ -2,3 +2,5 @@
 node_modules
 
 NOTE.md
+dist
+lib
